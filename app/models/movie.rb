@@ -17,7 +17,7 @@ class Movie < ApplicationRecord
   validates(:title, uniqueness: true)
 
   belongs_to(:director)
-  has_many(:characters, class_name: "Character", foreign__key: "movie_id")
+  has_many(:characters, class_name: "Character", foreign_key: "movie_id")
  # def characters 
  #   key = self.id
  #   the_many = Character.where({:movie_id => key})

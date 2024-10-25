@@ -12,9 +12,11 @@
 #
 class Actor < ApplicationRecord
   validates(:name, presence: true)
-  has_many(:characters, class_name: "Character", foreign__key: "actor_id")
+  has_many(:characters, class_name: "Character", foreign_key: "actor_id")
  
-
+  def filmography
+    self.characters.map(&:movie).uniq
+  end 
 #  def characters
 #    key = self.id
 #
@@ -27,7 +29,7 @@ class Actor < ApplicationRecord
 #    the_many = Array.new
 #
 #   self.characters.each do |joining_record|
-#      destination_record = joining_record.movie
+#      destination_record = joining_record.movie#
 #
 #
 #      the_many.push(destination_record)
